@@ -1,0 +1,384 @@
+[gd_scene load_steps=30 format=3 uid="uid://da80vs2iuodqe"]
+
+[ext_resource type="Script" path="res://script/enemy/SoldierCharger.cs" id="1_gip0d"]
+[ext_resource type="Script" path="res://script/animation/AnimationCharacter.cs" id="2_ut1lj"]
+[ext_resource type="Texture2D" uid="uid://btf0ijgod8mnh" path="res://asset/character/Enemy/PKIBossMan.png" id="3_ns0pj"]
+[ext_resource type="Script" path="res://script/soundsScript/FXAudioStreamPlayer.cs" id="4_02k7n"]
+[ext_resource type="Script" path="res://prefab/entity/enemy/SoldierShooter.cs" id="5_yuhwr"]
+[ext_resource type="Script" path="res://script/enemy/GunEnemyScript.cs" id="6_lic51"]
+[ext_resource type="Texture2D" uid="uid://copd2ye1xg4vy" path="res://asset/weapon/Gun.png" id="7_1hrkj"]
+[ext_resource type="Script" path="res://script/weapons/FiringSource.cs" id="8_7sypl"]
+[ext_resource type="Script" path="res://prefab/entity/enemy/Knife.cs" id="9_e6ts5"]
+[ext_resource type="Script" path="res://prefab/entity/enemy/KnifeAnimationPlayer.cs" id="10_njs4y"]
+[ext_resource type="Texture2D" uid="uid://c1hpycqihtdsk" path="res://asset/weapon/SwordAnimatedSheet4x.png" id="11_8h5lh"]
+[ext_resource type="FontFile" uid="uid://chvlunmqyumo" path="res://asset/font/monogram/ttf/monogram.ttf" id="12_vyc5d"]
+[ext_resource type="Script" path="res://script/enemy/BossController.cs" id="13_62mqa"]
+
+[sub_resource type="Animation" id="Animation_27btt"]
+resource_name = "Down_Animation"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.59363),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 7, 4]
+}
+
+[sub_resource type="Animation" id="Animation_6bfyy"]
+resource_name = "Down_Idle_Animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_gfijw"]
+resource_name = "Left_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.59363),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 15, 14, 13]
+}
+
+[sub_resource type="Animation" id="Animation_x2xyw"]
+resource_name = "Left_Idle_Animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_8eca5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cgber"]
+resource_name = "Right_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.59363),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 8, 9, 8]
+}
+
+[sub_resource type="Animation" id="Animation_aq87d"]
+resource_name = "Right_Idle_Animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_ics3w"]
+resource_name = "Up_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.59363),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_1xf0d"]
+resource_name = "Up_Idle_Animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syns6"]
+_data = {
+"Down_Animation": SubResource("Animation_27btt"),
+"Down_Idle_Animation": SubResource("Animation_6bfyy"),
+"Left_Animation": SubResource("Animation_gfijw"),
+"Left_Idle_Animation": SubResource("Animation_x2xyw"),
+"RESET": SubResource("Animation_8eca5"),
+"Right_Animation": SubResource("Animation_cgber"),
+"Right_Idle_Animation": SubResource("Animation_aq87d"),
+"Up_Animation": SubResource("Animation_ics3w"),
+"Up_Idle_Animation": SubResource("Animation_1xf0d")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5j8f"]
+radius = 21.2132
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nl3sp"]
+radius = 34.0
+height = 112.0
+
+[sub_resource type="Animation" id="Animation_yvyrh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnifeSpriteTransform/Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jfe7o"]
+resource_name = "Swing"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnifeSpriteTransform/Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 4, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60qx5"]
+_data = {
+"RESET": SubResource("Animation_yvyrh"),
+"Swing": SubResource("Animation_jfe7o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82coq"]
+size = Vector2(90, 36)
+
+[node name="PKIBoss" type="CharacterBody2D"]
+z_index = 20
+y_sort_enabled = true
+position = Vector2(0, -33)
+motion_mode = 1
+wall_min_slide_angle = 3.14159
+script = ExtResource("1_gip0d")
+maxHealth = 100.0
+baseSpeed = 175.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_syns6")
+}
+speed_scale = 2.0
+script = ExtResource("2_ut1lj")
+defaultAnimationSpeed = 2.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 38)
+shape = SubResource("CircleShape2D_d5j8f")
+metadata/Wall = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 51)
+texture = ExtResource("3_ns0pj")
+offset = Vector2(0, -40)
+hframes = 4
+vframes = 4
+
+[node name="Hitbox" type="Area2D" parent="."]
+metadata/Enemy = true
+metadata/Wall = true
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 10)
+shape = SubResource("CapsuleShape2D_nl3sp")
+metadata/Wall = false
+
+[node name="HitboxCollision2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 10)
+shape = SubResource("CapsuleShape2D_nl3sp")
+metadata/Wall = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 7
+simplify_epsilon = 0.5
+avoidance_enabled = true
+radius = 25.0
+max_neighbors = 50
+time_horizon_obstacles = 0.2
+max_speed = 100000.0
+avoidance_layers = 1793
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="DamageTintCooldown" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("4_02k7n")
+
+[node name="WeaponController" type="Node2D" parent="."]
+script = ExtResource("5_yuhwr")
+
+[node name="Gun" type="Node2D" parent="WeaponController"]
+process_mode = 1
+position = Vector2(-1, 20)
+script = ExtResource("6_lic51")
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponController/Gun"]
+position = Vector2(-84, -10)
+texture = ExtResource("7_1hrkj")
+
+[node name="EnemyFiringSource" type="Node2D" parent="WeaponController/Gun/Sprite2D" node_paths=PackedStringArray("audioStreamPlayer2D")]
+position = Vector2(-62, 1)
+script = ExtResource("8_7sypl")
+maxBullet = 30
+gunCooldown = 0.05
+gunSpread = 0.05
+reloadCooldown = 6.0
+audioStreamPlayer2D = NodePath("AudioPlayer")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="WeaponController/Gun/Sprite2D/EnemyFiringSource"]
+max_polyphony = 1000
+script = ExtResource("4_02k7n")
+
+[node name="ShootingTimer" type="Timer" parent="WeaponController/Gun/Sprite2D/EnemyFiringSource"]
+autostart = true
+
+[node name="ReloadTimer" type="Timer" parent="WeaponController/Gun/Sprite2D/EnemyFiringSource"]
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="WeaponController/Gun"]
+target_position = Vector2(0, 0)
+collision_mask = 15
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Timer" type="Timer" parent="WeaponController/Gun"]
+
+[node name="Knife" type="Node2D" parent="WeaponController" node_paths=PackedStringArray("charger")]
+process_mode = 1
+y_sort_enabled = true
+position = Vector2(-3, 40)
+script = ExtResource("9_e6ts5")
+attackDamage = 95.0
+attackChargeDuration = 0.8
+attackCooldown = 5.0
+charger = NodePath("../..")
+
+[node name="KnifeTransform" type="Node2D" parent="WeaponController/Knife"]
+y_sort_enabled = true
+position = Vector2(3, -11)
+rotation = 1.5708
+
+[node name="KnifeAnimationPlayer" type="AnimationPlayer" parent="WeaponController/Knife/KnifeTransform"]
+libraries = {
+"": SubResource("AnimationLibrary_60qx5")
+}
+script = ExtResource("10_njs4y")
+
+[node name="KnifeSpriteTransform" type="Node2D" parent="WeaponController/Knife/KnifeTransform"]
+y_sort_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="WeaponController/Knife/KnifeTransform/KnifeSpriteTransform"]
+position = Vector2(44, 0.999841)
+rotation = -1.5708
+texture = ExtResource("11_8h5lh")
+offset = Vector2(0, -10)
+flip_v = true
+hframes = 6
+
+[node name="Attack" type="Area2D" parent="WeaponController/Knife/KnifeTransform"]
+position = Vector2(23.6742, 7.42468)
+rotation = -1.5708
+
+[node name="AttackShape" type="CollisionShape2D" parent="WeaponController/Knife/KnifeTransform/Attack"]
+position = Vector2(6.42468, 21.3258)
+shape = SubResource("RectangleShape2D_82coq")
+
+[node name="ChargeUpTimer" type="Timer" parent="WeaponController/Knife"]
+
+[node name="AttackCooldownTimer" type="Timer" parent="WeaponController/Knife"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 100
+offset_left = -49.0
+offset_top = -66.0
+offset_right = 47.0
+offset_bottom = -40.0
+theme_override_fonts/normal_font = ExtResource("12_vyc5d")
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/normal_font_size = 31
+text = "DN Aidit
+"
+
+[node name="BossController" type="Node2D" parent="."]
+script = ExtResource("13_62mqa")

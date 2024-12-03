@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://beacgn3obffjq"
+path="res://.godot/imported/Menu.gif-ea7aebe662d73bbfa856d6234d8dd0c7.tres"
+
+[deps]
+
+source_file="res://asset/Menu.gif"
+dest_files=["res://.godot/imported/Menu.gif-ea7aebe662d73bbfa856d6234d8dd0c7.tres"]
+
+[params]
+
+frames_per_second=30

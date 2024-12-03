@@ -1,0 +1,290 @@
+[gd_scene load_steps=21 format=3 uid="uid://qv0no0cmyr4a"]
+
+[ext_resource type="Script" path="res://script/player/Player.cs" id="1_xldr2"]
+[ext_resource type="Texture2D" uid="uid://c3l1ugbm1hno1" path="res://asset/character/NormalGuy4x.png" id="2_vq3y5"]
+[ext_resource type="Script" path="res://script/animation/AnimationCharacter.cs" id="3_gpcj4"]
+[ext_resource type="Script" path="res://script/behavior/CameraShake.cs" id="4_cujer"]
+[ext_resource type="FontFile" uid="uid://chvlunmqyumo" path="res://asset/font/monogram/ttf/monogram.ttf" id="5_efsh2"]
+[ext_resource type="Script" path="res://script/ui/BulletCounter.cs" id="6_wbi2l"]
+[ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://addons/customizableCrosshair/crosshair/crosshair.tscn" id="7_x6716"]
+[ext_resource type="Texture2D" uid="uid://copd2ye1xg4vy" path="res://asset/weapon/Gun.png" id="8_4q6ft"]
+[ext_resource type="Script" path="res://script/weapons/FiringSource.cs" id="9_r2lmr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkw3c"]
+radius = 27.0185
+
+[sub_resource type="Animation" id="Animation_ax6pu"]
+resource_name = "Down_Animation"
+length = 2.0
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4995, 0.999, 1.4985),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 7, 4]
+}
+
+[sub_resource type="Animation" id="Animation_g3fx6"]
+resource_name = "Down_Idle_Animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_rjxae"]
+resource_name = "Left_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4995, 0.999, 1.4985),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_34wkq"]
+resource_name = "Left_Idle_Animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_sface"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n7gxu"]
+resource_name = "Right_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4995, 0.999, 1.4985),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 8, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_rru5w"]
+resource_name = "Right_Idle_Animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_mi4k5"]
+resource_name = "Up_Animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4995, 0.999, 1.4985),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_02ehd"]
+resource_name = "Up_Idle_Animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o58md"]
+_data = {
+"Down_Animation": SubResource("Animation_ax6pu"),
+"Down_Idle_Animation": SubResource("Animation_g3fx6"),
+"Left_Animation": SubResource("Animation_rjxae"),
+"Left_Idle_Animation": SubResource("Animation_34wkq"),
+"RESET": SubResource("Animation_sface"),
+"Right_Animation": SubResource("Animation_n7gxu"),
+"Right_Idle_Animation": SubResource("Animation_rru5w"),
+"Up_Animation": SubResource("Animation_mi4k5"),
+"Up_Idle_Animation": SubResource("Animation_02ehd")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_xldr2")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+position = Vector2(0, 45)
+texture = ExtResource("2_vq3y5")
+offset = Vector2(0, -40)
+hframes = 4
+vframes = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Player"]
+position = Vector2(-3, 42)
+shape = SubResource("CircleShape2D_vkw3c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_o58md")
+}
+speed_scale = 2.0
+script = ExtResource("3_gpcj4")
+defaultAnimationSpeed = 2.0
+
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("4_cujer")
+
+[node name="GameUI" type="Control" parent="Player/PlayerCamera"]
+custom_minimum_size = Vector2(1532, 870)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -970.0
+offset_top = -540.0
+offset_right = 1014.0
+offset_bottom = 670.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Player/PlayerCamera/GameUI"]
+z_index = 1000
+clip_contents = true
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 40.0
+tooltip_text = "
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Player/PlayerCamera/GameUI/Control"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BulletCounter" type="RichTextLabel" parent="Player/PlayerCamera/GameUI/Control/Panel"]
+custom_minimum_size = Vector2(10, 85)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -42.5
+offset_right = -20.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_efsh2")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 100
+text = "1/8"
+script = ExtResource("6_wbi2l")
+metadata/_edit_use_anchors_ = true
+
+[node name="Crosshair" parent="Player/PlayerCamera/GameUI" instance=ExtResource("7_x6716")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GunObject" type="Node2D" parent="Player"]
+y_sort_enabled = true
+position = Vector2(-2, 29)
+
+[node name="Gun" type="Sprite2D" parent="Player/GunObject"]
+y_sort_enabled = true
+position = Vector2(-71, 11)
+texture = ExtResource("8_4q6ft")
+offset = Vector2(0, -20)
+
+[node name="PlayerShootingTimer" type="Timer" parent="Player/GunObject/Gun"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="PlayerReloadTimer" type="Timer" parent="Player/GunObject/Gun"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="PlayerFiringSource" type="Node2D" parent="Player/GunObject/Gun"]
+unique_name_in_owner = true
+position = Vector2(-36, 2)
+script = ExtResource("9_r2lmr")
+gunCooldown = 0.2

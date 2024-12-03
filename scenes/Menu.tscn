@@ -1,0 +1,353 @@
+[gd_scene load_steps=16 format=3 uid="uid://nso71sxwbkws"]
+
+[ext_resource type="Script" path="res://script/ui/MenuController.cs" id="1_xgtrb"]
+[ext_resource type="Script" path="res://scenes/MenuMusic.cs" id="2_cjene"]
+[ext_resource type="Texture2D" uid="uid://bp25g61r2rhq7" path="res://asset/Icon/Icon.png" id="2_eav55"]
+[ext_resource type="AudioStream" uid="uid://cdc2y1b347l2q" path="res://asset/music/MenuMusic.mp3" id="2_edykt"]
+[ext_resource type="FontFile" uid="uid://dof6lykrqdv43" path="res://asset/font/monogram/ttf/monogram-extended.ttf" id="4_1v2ak"]
+[ext_resource type="Script" path="res://script/ui/PlayButton.cs" id="5_i6ayo"]
+[ext_resource type="Script" path="res://script/ui/SettingsButton.cs" id="6_unq3p"]
+[ext_resource type="Script" path="res://script/ui/QuitButton.cs" id="7_jlip1"]
+[ext_resource type="Script" path="res://script/ui/SettingsController.cs" id="8_4cbeo"]
+[ext_resource type="SpriteFrames" uid="uid://beacgn3obffjq" path="res://asset/Menu.gif" id="9_0otoq"]
+[ext_resource type="FontFile" uid="uid://chvlunmqyumo" path="res://asset/font/monogram/ttf/monogram.ttf" id="9_g81m2"]
+[ext_resource type="Script" path="res://script/ui/GoBackButton.cs" id="10_nx11w"]
+[ext_resource type="Script" path="res://script/ui/ControlGuideButton.cs" id="10_nxl7j"]
+[ext_resource type="Script" path="res://script/ui/ApplyButton.cs" id="11_q2jjy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vtxp"]
+bg_color = Color(0.188235, 0, 0, 0.282353)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgtrb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_edykt")
+volume_db = 24.0
+autoplay = true
+script = ExtResource("2_cjene")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+layout_mode = 0
+offset_left = -246.0
+offset_top = -212.0
+offset_right = 778.0
+offset_bottom = 812.0
+texture = ExtResource("2_eav55")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MainMenu"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.0
+offset_top = -168.0
+offset_right = -316.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+
+[node name="Panel" type="Panel" parent="MainMenu/VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vtxp")
+
+[node name="Camera2D" type="Camera2D" parent="MainMenu"]
+position = Vector2(764, 428)
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -121.0
+offset_top = 455.0
+offset_right = 232.0
+offset_bottom = 543.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("5_i6ayo")
+
+[node name="SettingsButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -122.0
+offset_top = 594.0
+offset_right = 231.0
+offset_bottom = 682.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("6_unq3p")
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = -122.0
+offset_top = 719.0
+offset_right = 231.0
+offset_bottom = 807.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("7_jlip1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MainMenu"]
+z_index = -100
+position = Vector2(352, 455)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("9_0otoq")
+animation = &"gif"
+autoplay = "gif"
+frame_progress = 0.925312
+
+[node name="PlayButton2" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 1163.0
+offset_top = 719.0
+offset_right = 1516.0
+offset_bottom = 807.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "How To Play"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("10_nxl7j")
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_4cbeo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Settings"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.0
+offset_top = -168.0
+offset_right = -316.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+
+[node name="Panel" type="Panel" parent="Settings/VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterSlider" type="Control" parent="Settings"]
+anchors_preset = 0
+offset_left = -171.0
+offset_top = 94.0
+offset_right = 1163.0
+offset_bottom = 188.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/MasterSlider"]
+layout_mode = 0
+offset_right = 522.0
+offset_bottom = 94.0
+theme_override_fonts/normal_font = ExtResource("9_g81m2")
+theme_override_font_sizes/normal_font_size = 100
+text = "Master Volume
+"
+
+[node name="HSlider" type="HSlider" parent="Settings/MasterSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="SFXSlider" type="Control" parent="Settings"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -170.0
+offset_top = 252.0
+offset_right = 1164.0
+offset_bottom = 346.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/SFXSlider"]
+layout_mode = 0
+offset_right = 522.0
+offset_bottom = 94.0
+theme_override_fonts/normal_font = ExtResource("9_g81m2")
+theme_override_font_sizes/normal_font_size = 100
+text = "SFX Volume"
+
+[node name="HSlider" type="HSlider" parent="Settings/SFXSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="MusicSlider" type="Control" parent="Settings"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -171.0
+offset_top = 410.0
+offset_right = 1163.0
+offset_bottom = 504.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/MusicSlider"]
+layout_mode = 0
+offset_right = 522.0
+offset_bottom = 94.0
+theme_override_fonts/normal_font = ExtResource("9_g81m2")
+theme_override_font_sizes/normal_font_size = 100
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="Settings/MusicSlider"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="GoBackButton" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = -171.0
+offset_top = 768.0
+offset_right = 182.0
+offset_bottom = 856.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Go Back"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("10_nx11w")
+
+[node name="ApplyButton" type="Button" parent="Settings"]
+layout_mode = 0
+offset_left = 1076.0
+offset_top = 768.0
+offset_right = 1429.0
+offset_bottom = 856.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Apply"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("11_q2jjy")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_4cbeo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.0
+offset_top = -168.0
+offset_right = -316.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+
+[node name="Panel" type="Panel" parent="Control/VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoBackButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -171.0
+offset_top = 768.0
+offset_right = 182.0
+offset_bottom = 856.0
+theme_override_fonts/font = ExtResource("4_1v2ak")
+theme_override_font_sizes/font_size = 64
+text = "Go Back"
+autowrap_mode = 2
+icon_alignment = 1
+script = ExtResource("10_nx11w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -171.0
+offset_right = 1355.0
+offset_bottom = 682.0
+theme_override_fonts/normal_font = ExtResource("9_g81m2")
+theme_override_font_sizes/normal_font_size = 64
+text = "Weapon Control
+R/Left Click = Attack
+F/Right Click = Aim
+
+Movement
+W - Move Foward
+A - Move Left
+S - Move Backward 
+D - Move Right
+
+Weapon Hotbar
+1 - Knife
+2 - Pistol
+3 - Rifle"

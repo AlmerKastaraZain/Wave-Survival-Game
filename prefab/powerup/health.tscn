@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgbhbchki8p3u"]
+
+[ext_resource type="Script" path="res://script/Powerup/HealthPowerUp.cs" id="1_4wdik"]
+[ext_resource type="Texture2D" uid="uid://cgbvq4qckjx16" path="res://asset/powerup/Health.png" id="2_vbi7b"]
+[ext_resource type="AudioStream" uid="uid://dfprhiv07745t" path="res://sounds/powerup/powerUp.wav" id="3_6n61d"]
+[ext_resource type="Script" path="res://script/soundsScript/FXAudioStreamPlayer.cs" id="4_lxnmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7tjr"]
+radius = 44.0454
+
+[node name="Health" type="Node2D"]
+position = Vector2(276, -123)
+script = ExtResource("1_4wdik")
+healthRecieved = 20
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p7tjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vbi7b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6n61d")
+script = ExtResource("4_lxnmu")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://do7kpl70y08d0"]
+
+[ext_resource type="Script" path="res://script/Powerup/EnergyPowerUp.cs" id="1_3hvqk"]
+[ext_resource type="Texture2D" uid="uid://cn0vhq6s33xj" path="res://asset/powerup/Energy.png" id="2_b1521"]
+[ext_resource type="AudioStream" uid="uid://dfprhiv07745t" path="res://sounds/powerup/powerUp.wav" id="3_fufb4"]
+[ext_resource type="Script" path="res://script/soundsScript/FXAudioStreamPlayer.cs" id="4_14jgn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7tjr"]
+radius = 44.0454
+
+[node name="Energy" type="Node2D"]
+position = Vector2(276, 2)
+script = ExtResource("1_3hvqk")
+staminaRecieved = 40
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p7tjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b1521")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fufb4")
+script = ExtResource("4_14jgn")
