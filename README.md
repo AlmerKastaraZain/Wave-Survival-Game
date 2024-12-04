@@ -37,7 +37,7 @@
   <h3 align="center">Operasi Merah Putih</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An Awesome Game made with Godot
     <br />
     <br />
     <br />
@@ -88,7 +88,7 @@ Operasi Merah Putih adalah sebuah game bergenre sejarah aksi yang membawa pemain
 
 
 ### Built With
-![logo_vertical_color_light](https://github.com/user-attachments/assets/0a5eca1f-b84b-4b30-9c24-d2f998f08234)
+![logo_vertical_color_light]([https://github.com/user-attachments/assets/0a5eca1f-b84b-4b30-9c24-d2f998f08234](https://static.wikia.nocookie.net/logopedia/images/7/7e/Godot_game_engine_logo.svg/revision/latest/scale-to-width-down/300?cb=20221004155752))
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
