@@ -170,11 +170,11 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/AlmerKastaraZain/Wave-Survival-Game.svg?style=for-the-badge
 [contributors-url]: https://github.com/AlmerKastaraZain/Wave-Survival-Game/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/AlmerKastaraZain/Wave-Survival-Game.svg?style=for-the-badge
 [forks-url]: https://github.com/AlmerKastaraZain/Wave-Survival-Game/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/AlmerKastaraZain/Wave-Survival-Game.svg?style=for-the-badge
 [stars-url]: https://github.com/AlmerKastaraZain/Wave-Survival-Game/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/AlmerKastaraZain/Wave-Survival-Game.svg?style=for-the-badge
 [issues-url]: https://github.com/AlmerKastaraZain/Wave-Survival-Game/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/almer-kastara-zain-5b5704333/
