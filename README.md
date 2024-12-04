@@ -29,8 +29,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/AlmerKastaraZain/Wave-Survival-Game">
-    ![Logo](https://github.com/user-attachments/assets/4365f783-41aa-4415-865b-201eaaaf8174)
+  <a href="https://github.com/AlmerKastaraZain/Wave-Survival-Game">  
+    <img src="https://github.com/user-attachments/assets/90f6972b-df53-4f65-b56c-5095ce0b9ced" width="80px" height="80px" />
   </a>
 
   <h3 align="center">Operasi Merah Putih</h3>
@@ -46,8 +46,6 @@
     <a href="https://github.com/AlmerKastaraZain/Wave-Survival-Game/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
